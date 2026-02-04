@@ -16,7 +16,7 @@ namespace GameProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CarRace());
+            Application.Run(new ChartControl());
         }
     }
 }
