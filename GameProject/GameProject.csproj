@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarRace.cs">
+    <Compile Include="carRacing\CarRace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CarRace.Designer.cs">
+    <Compile Include="carRacing\CarRace.Designer.cs">
       <DependentUpon>CarRace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="chart\ChartControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chart\ChartControl.Designer.cs">
+      <DependentUpon>ChartControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -58,16 +65,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="loan\Calculator.cs" />
     <Compile Include="loan\LoanCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="loan\LoanCalculator.Designer.cs">
       <DependentUpon>LoanCalculator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -78,8 +86,11 @@
     <Compile Include="tictactoe\TicTacToe.Designer.cs">
       <DependentUpon>TicTacToe.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CarRace.resx">
+    <EmbeddedResource Include="carRacing\CarRace.resx">
       <DependentUpon>CarRace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chart\ChartControl.resx">
+      <DependentUpon>ChartControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -87,7 +98,7 @@
     <EmbeddedResource Include="loan\LoanCalculator.resx">
       <DependentUpon>LoanCalculator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

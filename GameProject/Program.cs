@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameProject.loan;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace GameProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChartControl());
+            Application.Run(new LoanCalculator());
         }
     }
 }
