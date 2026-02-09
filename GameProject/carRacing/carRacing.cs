@@ -12,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Car_Racing
 {
-    public partial class Form1 : Form
+    public partial class carRacing : Form
     {
         int collectedcoin = 0;
         int gameSpeed = 2;
-        int moveSpeed = 7;
+        int moveSpeed = 5;
         Random r = new Random();
         int x;
         bool isGameOver = false;
@@ -25,7 +25,7 @@ namespace Car_Racing
         List<Enemy> enemies;
         List<Coin> coins;
 
-        public Form1()
+        public carRacing()
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -76,7 +76,7 @@ namespace Car_Racing
                     isGameOver = true;
                     timer1.Enabled = false;
                     over.Visible = true;
-                    btnRefresh.Enabled = true;
+                    btnRefresh.Enabled = true;   
                     SaveScore();
                     break;
                 }
@@ -248,7 +248,7 @@ namespace Car_Racing
 
         public void MoveLeft(int speed)
         {
-            if (Sprite.Left > 2)
+            if (Sprite.Left > 0)
                 Sprite.Left -= speed;
         }
 

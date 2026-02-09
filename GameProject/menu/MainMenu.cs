@@ -1,4 +1,5 @@
-﻿using GameProject.loan;
+﻿using Car_Racing;
+using GameProject.loan;
 using GameProject.loan.connection;
 using GameProject.tictactoe;
 using System;
@@ -28,7 +29,7 @@ namespace GameProject.manu
 
         private void btnCarRacing_Click(object sender, EventArgs e)
         {
-            CarRace car = new CarRace();
+            carRacing car = new carRacing();
             car.ShowDialog();
         }
 

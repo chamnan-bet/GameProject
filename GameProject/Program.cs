@@ -20,8 +20,8 @@ namespace GameProject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
-            //Application.Run(new MainMenu());
-            Application.Run(new CustomerForm());
+            Application.Run(new MainMenu());
+            //Application.Run(new CustomerForm());
 
         }
 

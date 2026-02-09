@@ -1,6 +1,6 @@
 ﻿namespace Car_Racing
 {
-    partial class Form1
+    partial class carRacing
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(carRacing));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -121,7 +121,7 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(545, -2);
+            this.pictureBox6.Location = new System.Drawing.Point(546, -2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(13, 667);
             this.pictureBox6.TabIndex = 5;
@@ -163,7 +163,7 @@
             this.enemy2.Image = ((System.Drawing.Image)(resources.GetObject("enemy2.Image")));
             this.enemy2.Location = new System.Drawing.Point(346, 141);
             this.enemy2.Name = "enemy2";
-            this.enemy2.Size = new System.Drawing.Size(41, 55);
+            this.enemy2.Size = new System.Drawing.Size(43, 55);
             this.enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy2.TabIndex = 8;
             this.enemy2.TabStop = false;
@@ -182,16 +182,14 @@
             // over
             // 
             this.over.AutoSize = true;
-            this.over.BackColor = System.Drawing.Color.Gold;
-            this.over.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.over.Font = new System.Drawing.Font("Leelawadee UI", 34.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.over.BackColor = System.Drawing.Color.Yellow;
+            this.over.Font = new System.Drawing.Font("Leelawadee UI", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.over.ForeColor = System.Drawing.Color.Red;
-            this.over.Location = new System.Drawing.Point(117, 191);
+            this.over.Location = new System.Drawing.Point(117, 199);
             this.over.Name = "over";
-            this.over.Size = new System.Drawing.Size(331, 76);
+            this.over.Size = new System.Drawing.Size(334, 77);
             this.over.TabIndex = 11;
             this.over.Text = "Game Over";
-            this.over.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.over.Click += new System.EventHandler(this.label2_Click);
             // 
             // coin1
@@ -243,11 +241,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(18, 13);
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(18, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 28);
+            this.label1.Size = new System.Drawing.Size(91, 25);
             this.label1.TabIndex = 16;
             this.label1.Text = "Coins = 0";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -258,21 +256,21 @@
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnRefresh.Location = new System.Drawing.Point(437, 13);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(95, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(94, 32);
             this.btnRefresh.TabIndex = 17;
             this.btnRefresh.Text = "Play Again";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // carRacing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(557, 490);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.over);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.coin4);
             this.Controls.Add(this.coin3);
             this.Controls.Add(this.coin2);
@@ -287,9 +285,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "carRacing";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
