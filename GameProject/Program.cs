@@ -17,7 +17,7 @@ namespace GameProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoanCalculator());
+            Application.Run(new Login());
         }
     }
 }
