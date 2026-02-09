@@ -81,6 +81,12 @@
     </Compile>
     <Compile Include="loan\Calculator.cs" />
     <Compile Include="connection\Database.cs" />
+    <Compile Include="loan\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loan\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="loan\LoanCalculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="loan\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loan\LoanCalculator.resx">
       <DependentUpon>LoanCalculator.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="connection\database.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

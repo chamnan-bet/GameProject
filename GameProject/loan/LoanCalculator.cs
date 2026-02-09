@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameProject.loan.connection;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,12 @@ namespace GameProject.loan
 {
     public partial class LoanCalculator : Form
     {
+        private string selectedCustomerId;
         public LoanCalculator()
         {
            
             InitializeComponent();
-
+            LoadCustomers();
             yearsTxt.Text = "0";
             monthsTxt.Text = "0";
         }
@@ -70,6 +73,10 @@ namespace GameProject.loan
                 double totalPay = Math.Round(loan.TotalPayment(), 2);
                 double interest = Math.Round(loan.TotalInterest(), 2);
 
+                txtMonthlyPay.Text = monthly.ToString("C0");
+                txtTotalPay.Text = totalPay.ToString("C0");
+                txtTotalInt.Text = interest.ToString("C0");
+
                 MessageBox.Show(
                     $"Monthly Payment: ${monthly}\n\n" +
                     $"Total Payment: ${totalPay}\n" +
@@ -83,6 +90,52 @@ namespace GameProject.loan
 
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //LoadCustomers(); 
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                selectedCustomerId = row.Cells["CID"].Value.ToString();
+                txtCID.Text = selectedCustomerId;
+                //MessageBox.Show(selectedCustomerId);
+            }
+        }
 
+        private void LoadCustomers()
+        {
+            Database db = new Database();
+            using (var conn = db.GetConnection())
+            {
+                conn.Open(); string query = "SELECT CID, firstname, lastname, gender, currentAddress, status FROM Customer";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+                conn.Close();
+            }
+
+            
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMonthlyPay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotalPay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

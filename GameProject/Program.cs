@@ -1,9 +1,11 @@
 ﻿using GameProject.loan;
+using GameProject.manu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MainMenu = GameProject.manu.MainMenu;
 
 namespace GameProject
 {
@@ -17,7 +19,11 @@ namespace GameProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            //Application.Run(new MainMenu());
+            Application.Run(new CustomerForm());
+
         }
+
     }
 }

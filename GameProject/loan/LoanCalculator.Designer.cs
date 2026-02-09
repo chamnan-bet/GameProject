@@ -40,7 +40,18 @@
             this.monthsTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtMonthlyPay = new System.Windows.Forms.Label();
+            this.txtTotalPay = new System.Windows.Forms.Label();
+            this.txtTotalInt = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -128,7 +139,7 @@
             this.calBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.calBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calBtn.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.calBtn.Location = new System.Drawing.Point(117, 294);
+            this.calBtn.Location = new System.Drawing.Point(164, 293);
             this.calBtn.Name = "calBtn";
             this.calBtn.Size = new System.Drawing.Size(264, 62);
             this.calBtn.TabIndex = 8;
@@ -166,12 +177,131 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Months";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(46, 519);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1278, 280);
+            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(543, 468);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(234, 38);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Customer Info";
+            // 
+            // txtMonthlyPay
+            // 
+            this.txtMonthlyPay.AutoSize = true;
+            this.txtMonthlyPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMonthlyPay.Location = new System.Drawing.Point(879, 202);
+            this.txtMonthlyPay.Name = "txtMonthlyPay";
+            this.txtMonthlyPay.Size = new System.Drawing.Size(32, 36);
+            this.txtMonthlyPay.TabIndex = 14;
+            this.txtMonthlyPay.Text = "$";
+            this.txtMonthlyPay.Click += new System.EventHandler(this.txtMonthlyPay_Click);
+            // 
+            // txtTotalPay
+            // 
+            this.txtTotalPay.AutoSize = true;
+            this.txtTotalPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPay.Location = new System.Drawing.Point(843, 250);
+            this.txtTotalPay.Name = "txtTotalPay";
+            this.txtTotalPay.Size = new System.Drawing.Size(32, 36);
+            this.txtTotalPay.TabIndex = 15;
+            this.txtTotalPay.Text = "$";
+            this.txtTotalPay.Click += new System.EventHandler(this.txtTotalPay_Click);
+            // 
+            // txtTotalInt
+            // 
+            this.txtTotalInt.AutoSize = true;
+            this.txtTotalInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalInt.Location = new System.Drawing.Point(843, 299);
+            this.txtTotalInt.Name = "txtTotalInt";
+            this.txtTotalInt.Size = new System.Drawing.Size(32, 36);
+            this.txtTotalInt.TabIndex = 16;
+            this.txtTotalInt.Text = "$";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(613, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(252, 36);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Monthly Payment:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(613, 250);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(212, 36);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Total Payment:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(613, 299);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(195, 36);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Total Interest:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(613, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 36);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Customer :";
+            // 
+            // txtCID
+            // 
+            this.txtCID.AutoSize = true;
+            this.txtCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCID.Location = new System.Drawing.Point(777, 105);
+            this.txtCID.Name = "txtCID";
+            this.txtCID.Size = new System.Drawing.Size(65, 36);
+            this.txtCID.TabIndex = 21;
+            this.txtCID.Text = "CID";
+            this.txtCID.Click += new System.EventHandler(this.label12_Click);
+            // 
             // LoanCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(751, 666);
+            this.ClientSize = new System.Drawing.Size(1371, 843);
+            this.Controls.Add(this.txtCID);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtTotalInt);
+            this.Controls.Add(this.txtTotalPay);
+            this.Controls.Add(this.txtMonthlyPay);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.monthsTxt);
@@ -187,6 +317,7 @@
             this.Name = "LoanCalculator";
             this.Text = "LoanCalculator";
             ((System.ComponentModel.ISupportInitialize)(this.bg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +337,15 @@
         private System.Windows.Forms.TextBox monthsTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label txtMonthlyPay;
+        private System.Windows.Forms.Label txtTotalPay;
+        private System.Windows.Forms.Label txtTotalInt;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label txtCID;
     }
 }

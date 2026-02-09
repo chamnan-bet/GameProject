@@ -17,16 +17,16 @@ CREATE TABLE Customer (
 -- Term Table
 CREATE TABLE Term (
     TID INT AUTO_INCREMENT PRIMARY KEY,
-    term INT NOT NULL,              -- number of months
-    annualInterest DECIMAL(5,2)     -- percentage
+    term INT NOT NULL,
+    annualInterest DECIMAL(5,2)
 );
 
 -- LoanContract Table
 CREATE TABLE LoanContract (
     LC VARCHAR(10) PRIMARY KEY,
-    CID VARCHAR(10),
-    loanAmount DECIMAL(12,2),
-    TermID INT,
+    CID VARCHAR(10) NOT NULL,
+    loanAmount DECIMAL(12,2) NOT NULL,
+    TermID INT NOT NULL,
     MonthlyInterest DECIMAL(12,2),
     LoanDate DATE,
     startPaymentDate DATE,
@@ -39,8 +39,8 @@ CREATE TABLE LoanContract (
 -- PaymentSchedule Table
 CREATE TABLE PaymentSchedule (
     ScheduleID INT AUTO_INCREMENT PRIMARY KEY,
-    LC VARCHAR(10),
-    dueDate DATE,
+    LC VARCHAR(10) NOT NULL,
+    dueDate DATE NOT NULL,
     monthlyPayment DECIMAL(12,2),
     principal DECIMAL(12,2),
     interest DECIMAL(12,2),
@@ -50,7 +50,7 @@ CREATE TABLE PaymentSchedule (
     FOREIGN KEY (LC) REFERENCES LoanContract(LC)
 );
 
--- Example Insert Data
+-- Example Data
 INSERT INTO Customer (CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
 VALUES ('C00001', 'John', 'Doe', 'M', 'Phnom Penh', '1990-01-01', '123 Street', 'Active');
 
@@ -62,8 +62,3 @@ VALUES ('LC001', 'C00001', 20000.00, 1, 100.00, '2026-01-01', '2026-02-01', 'Act
 
 INSERT INTO PaymentSchedule (LC, dueDate, monthlyPayment, principal, interest, service, balance, action)
 VALUES ('LC001', '2026-02-01', 300.00, 199.00, 100.00, 1.00, 19800.00, 'Pending');
-
-
-
-
-
