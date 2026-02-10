@@ -1,7 +1,6 @@
 ﻿using Car_Racing;
 using GameProject.loan;
 using GameProject.loan.connection;
-using GameProject.tictactoe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tic_Tac_Toe;
 
 namespace GameProject.manu
 {
@@ -64,6 +64,16 @@ namespace GameProject.manu
             //}
 
             db.testConnection(); 
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

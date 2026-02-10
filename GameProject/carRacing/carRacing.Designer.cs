@@ -254,9 +254,9 @@
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Leelawadee UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnRefresh.Location = new System.Drawing.Point(437, 13);
+            this.btnRefresh.Location = new System.Drawing.Point(408, 13);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(94, 32);
+            this.btnRefresh.Size = new System.Drawing.Size(123, 32);
             this.btnRefresh.TabIndex = 17;
             this.btnRefresh.Text = "Play Again";
             this.btnRefresh.UseVisualStyleBackColor = true;
