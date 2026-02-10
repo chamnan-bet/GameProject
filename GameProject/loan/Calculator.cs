@@ -12,12 +12,12 @@ namespace GameProject.loan
 {
     internal class Calculator
     {
-        public double Principal { get; set; }      // P
-        public double AnnualRate { get; set; }     // r (percent)
-        public int Years { get; set; }             // n
+        public decimal Principal { get; set; }
+        public decimal AnnualRate { get; set; }
+        public int Years { get; set; }
         public int Months { get; set; }
 
-        public Calculator(double principal, double annualRate, int years, int months)
+        public Calculator(decimal principal, decimal annualRate, int years, int months)
         {
             Principal = principal;
             AnnualRate = annualRate;
@@ -30,31 +30,30 @@ namespace GameProject.loan
             return (Years * 12) + Months;
         }
 
-        public double MonthlyRate()
+        public decimal MonthlyRate()
         {
-            return (AnnualRate / 100.0) / 12.0;
+            return (AnnualRate / 100m) / 12m;
         }
 
-        public double MonthlyPayment()
+        public decimal MonthlyPayment()
         {
-            double r = MonthlyRate();
+            decimal r = MonthlyRate();
             int n = TotalMonths();
 
-            double pow = Math.Pow(1 + r, n);
+            decimal pow = (decimal)Math.Pow((double)(1 + r), n);
 
             return Principal * r * pow / (pow - 1);
         }
 
-        public double TotalPayment()
+        public decimal TotalPayment()
         {
             return MonthlyPayment() * TotalMonths();
         }
 
-        public double TotalInterest()
+        public decimal TotalInterest()
         {
             return TotalPayment() - Principal;
         }
-
-        
     }
+
 }

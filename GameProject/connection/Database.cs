@@ -41,6 +41,28 @@ namespace GameProject.loan.connection
             }
         }
 
+        public string gernerateLoanContractId(MySqlConnection connection)
+        {
+            string sql = "SELECT LC FROM LoanContract ORDER BY LC DESC LIMIT 1";
+
+
+            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            {
+                object result = cmd.ExecuteScalar();
+
+                if (result == null || result == DBNull.Value)
+                {
+                    return "LC00001";
+                }
+
+                string lastCId = result.ToString();
+                int number = int.Parse(lastCId.Substring(2));
+                number++;
+
+                return "LC" + number.ToString("D3");
+            }
+        }
+
         public void testConnection()
         {
 
