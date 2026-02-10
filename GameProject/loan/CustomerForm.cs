@@ -1,13 +1,6 @@
 ﻿using GameProject.loan.connection;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace GameProject.loan
@@ -17,11 +10,6 @@ namespace GameProject.loan
         public CustomerForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void CustomerForm_Load(object sender, EventArgs e)
@@ -56,25 +44,27 @@ namespace GameProject.loan
             {
                 Database db = new Database();
 
-                using (MySqlConnection conn = db.GetConnection())
+                using (SqlConnection conn = db.GetConnection())
                 {
                     conn.Open();
-                    string customerId = db.gernerateCustomerId(conn);
 
-                    string sql = @"INSERT INTO Customer 
-                           (CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
-                           VALUES 
-                           (@cid, @fname, @lname, @gender,
-                            @pob, @dob, @address, @status)";
+                    string customerId = db.GenerateCustomerId(conn);
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    string sql = @"
+                        INSERT INTO Customer
+                        (CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
+                        VALUES
+                        (@cid, @fname, @lname, @gender, @pob, @dob, @address, @status)
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@cid", customerId);
                         cmd.Parameters.AddWithValue("@fname", txtFirstName.Text.Trim());
                         cmd.Parameters.AddWithValue("@lname", txtLastName.Text.Trim());
                         cmd.Parameters.AddWithValue("@gender", cmbGender.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@dob", dtpDOB.Value.Date);
                         cmd.Parameters.AddWithValue("@pob", txtPlaceOfBirth.Text.Trim());
+                        cmd.Parameters.AddWithValue("@dob", dtpDOB.Value.Date);
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
                         cmd.Parameters.AddWithValue("@status",
                             chkActive.Checked ? "Active" : "Inactive");
@@ -108,21 +98,6 @@ namespace GameProject.loan
             cmbGender.SelectedIndex = 0;
             dtpDOB.Value = DateTime.Today;
             chkActive.Checked = true;
-        }
-
-        private void dtpDOB_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

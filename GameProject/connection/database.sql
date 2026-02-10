@@ -1,44 +1,55 @@
--- Create database
-CREATE DATABASE IF NOT EXISTS LoanDB;
-USE LoanDB;
+/* Create database (SQL Server way) */
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LoanDB')
+BEGIN
+    CREATE DATABASE LoanDB;
+END
+GO
 
--- Customer Table
+USE LoanDB;
+GO
+
+
 CREATE TABLE Customer (
     CID VARCHAR(10) PRIMARY KEY,
     firstname VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL,
-    gender CHAR(1),
+    gender VARCHAR(10),
     placeOfBirth VARCHAR(100),
     dateOfBirth DATE,
     currentAddress VARCHAR(200),
     status VARCHAR(20)
 );
 
--- Term Table
+
 CREATE TABLE Term (
-    TID INT AUTO_INCREMENT PRIMARY KEY,
+    TID INT IDENTITY(1,1) PRIMARY KEY,
     term INT NOT NULL,
     annualInterest DECIMAL(5,2)
 );
 
--- LoanContract Table
+
 CREATE TABLE LoanContract (
     LC VARCHAR(10) PRIMARY KEY,
     CID VARCHAR(10) NOT NULL,
     loanAmount DECIMAL(12,2) NOT NULL,
-    TermID INT NOT NULL,
+    TermID INT NULL,
     MonthlyInterest DECIMAL(12,2),
     LoanDate DATE,
     startPaymentDate DATE,
     status VARCHAR(20),
     scheduleStatus VARCHAR(20),
-    FOREIGN KEY (CID) REFERENCES Customer(CID),
-    FOREIGN KEY (TermID) REFERENCES Term(TID)
+
+    CONSTRAINT FK_LoanContract_Customer
+        FOREIGN KEY (CID) REFERENCES Customer(CID),
+
+    CONSTRAINT FK_LoanContract_Term
+        FOREIGN KEY (TermID) REFERENCES Term(TID)
 );
 
--- PaymentSchedule Table
+
+
 CREATE TABLE PaymentSchedule (
-    ScheduleID INT AUTO_INCREMENT PRIMARY KEY,
+    ScheduleID INT IDENTITY(1,1) PRIMARY KEY,
     LC VARCHAR(10) NOT NULL,
     dueDate DATE NOT NULL,
     monthlyPayment DECIMAL(12,2),
@@ -47,18 +58,44 @@ CREATE TABLE PaymentSchedule (
     service DECIMAL(12,2),
     balance DECIMAL(12,2),
     action VARCHAR(50),
-    FOREIGN KEY (LC) REFERENCES LoanContract(LC)
+
+    CONSTRAINT FK_PaymentSchedule_LoanContract
+        FOREIGN KEY (LC) REFERENCES LoanContract(LC)
 );
 
--- Example Data
-INSERT INTO Customer (CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
-VALUES ('C00001', 'John', 'Doe', 'M', 'Phnom Penh', '1990-01-01', '123 Street', 'Active');
 
+
+INSERT INTO Customer
+(CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
+VALUES
+('C00001', 'John', 'Doe', 'Male', 'Phnom Penh', '1990-01-01', '123 Street', 'Active');
 INSERT INTO Term (term, annualInterest)
 VALUES (60, 12.00);
+INSERT INTO LoanContract
+(LC, CID, loanAmount, TermID, MonthlyInterest, LoanDate, startPaymentDate, status, scheduleStatus)
+VALUES
+('LC001', 'C00001', 20000.00, 1, 100.00, '2026-01-01', '2026-02-01', 'Active', 'Pending');
+INSERT INTO PaymentSchedule
+(LC, dueDate, monthlyPayment, principal, interest, service, balance, action)
+VALUES
+('LC001', '2026-02-01', 300.00, 199.00, 100.00, 1.00, 19800.00, 'Pending');
 
-INSERT INTO LoanContract (LC, CID, loanAmount, TermID, MonthlyInterest, LoanDate, startPaymentDate, status, scheduleStatus)
-VALUES ('LC001', 'C00001', 20000.00, 1, 100.00, '2026-01-01', '2026-02-01', 'Active', 'Pending');
 
-INSERT INTO PaymentSchedule (LC, dueDate, monthlyPayment, principal, interest, service, balance, action)
-VALUES ('LC001', '2026-02-01', 300.00, 199.00, 100.00, 1.00, 19800.00, 'Pending');
+
+
+
+SELECT
+    FORMAT(ps.dueDate, 'dd/MM/yyyy')      AS [Date],
+    ps.LC                                 AS [LC],
+    lc.CID                                AS [CID],
+    ps.monthlyPayment                     AS [Monthly Payment],
+    ps.principal                          AS [Principle],
+    ps.interest                           AS [Interest],
+    ps.service                            AS [Service],
+    ps.balance                            AS [Balance],
+    FORMAT(ps.dueDate, 'dd/MM/yyyy')      AS [Due Date],
+    ps.action                             AS [Action]
+FROM PaymentSchedule ps
+INNER JOIN LoanContract lc ON ps.LC = lc.LC
+INNER JOIN Customer c ON lc.CID = c.CID
+ORDER BY ps.dueDate;

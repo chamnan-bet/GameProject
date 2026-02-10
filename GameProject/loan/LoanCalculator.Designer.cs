@@ -65,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(260, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Loan Calculator";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // bg
             // 
@@ -97,7 +96,6 @@
             this.label3.Size = new System.Drawing.Size(107, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Loan Term";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // loanAmount
             // 
@@ -105,7 +103,6 @@
             this.loanAmount.Name = "loanAmount";
             this.loanAmount.Size = new System.Drawing.Size(284, 22);
             this.loanAmount.TabIndex = 4;
-            this.loanAmount.TextChanged += new System.EventHandler(this.loanAmount_TextChanged);
             // 
             // yearsTxt
             // 
@@ -113,7 +110,6 @@
             this.yearsTxt.Name = "yearsTxt";
             this.yearsTxt.Size = new System.Drawing.Size(81, 22);
             this.yearsTxt.TabIndex = 5;
-            this.yearsTxt.TextChanged += new System.EventHandler(this.year_TextChanged);
             // 
             // label4
             // 
@@ -125,7 +121,6 @@
             this.label4.Size = new System.Drawing.Size(114, 25);
             this.label4.TabIndex = 6;
             this.label4.Text = "Interest rate";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // rateTxt
             // 
@@ -133,7 +128,6 @@
             this.rateTxt.Name = "rateTxt";
             this.rateTxt.Size = new System.Drawing.Size(284, 22);
             this.rateTxt.TabIndex = 7;
-            this.rateTxt.TextChanged += new System.EventHandler(this.rate_TextChanged);
             // 
             // calBtn
             // 
@@ -155,7 +149,6 @@
             this.monthsTxt.Name = "monthsTxt";
             this.monthsTxt.Size = new System.Drawing.Size(81, 22);
             this.monthsTxt.TabIndex = 9;
-            this.monthsTxt.TextChanged += new System.EventHandler(this.month_TextChanged);
             // 
             // label5
             // 
@@ -216,7 +209,6 @@
             this.txtMonthlyPay.Size = new System.Drawing.Size(32, 36);
             this.txtMonthlyPay.TabIndex = 14;
             this.txtMonthlyPay.Text = "$";
-            this.txtMonthlyPay.Click += new System.EventHandler(this.txtMonthlyPay_Click);
             // 
             // txtTotalPay
             // 
@@ -227,7 +219,6 @@
             this.txtTotalPay.Size = new System.Drawing.Size(32, 36);
             this.txtTotalPay.TabIndex = 15;
             this.txtTotalPay.Text = "$";
-            this.txtTotalPay.Click += new System.EventHandler(this.txtTotalPay_Click);
             // 
             // txtTotalInt
             // 
@@ -258,7 +249,6 @@
             this.label9.Size = new System.Drawing.Size(212, 36);
             this.label9.TabIndex = 18;
             this.label9.Text = "Total Payment:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -289,7 +279,6 @@
             this.txtCID.Size = new System.Drawing.Size(65, 36);
             this.txtCID.TabIndex = 21;
             this.txtCID.Text = "CID";
-            this.txtCID.Click += new System.EventHandler(this.label12_Click);
             // 
             // btnAddCustomer
             // 
@@ -309,6 +298,7 @@
             // 
             this.btnSaveLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnSaveLoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSaveLoan.Enabled = false;
             this.btnSaveLoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveLoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveLoan.Location = new System.Drawing.Point(619, 370);

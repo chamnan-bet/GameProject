@@ -1,13 +1,16 @@
-﻿using System;
+﻿using GameProject.loan.connection;
+using GameProject.manu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GameProject.manu;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using MainMenu = GameProject.manu.MainMenu;
 
 namespace GameProject
@@ -29,23 +32,60 @@ namespace GameProject
 
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
-            if(username.Text == "admin" && password.Text == "123")
-            {
-                this.Hide();
+                
+        }
 
-                MainMenu menu = new MainMenu();
-                menu.FormClosed += (s, args) => this.Close();
-                menu.Show();
-            }
-            else
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("Invalid username or password",
-                                "Login Failed",
+                MessageBox.Show("Please enter username and password.",
+                                "Validation",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
+                return;
             }
+
+            try
+            {
+                Database db = new Database();
+
+                bool isValid = db.ValidateLogin(
+                    txtUsername.Text.Trim(),
+                    txtPassword.Text.Trim()
+                );
+
+                if (isValid)
+                {
+                    this.Hide();
+                    MainMenu menu = new MainMenu();
+                    menu.FormClosed += (s, args) => this.Close();
+                    menu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.",
+                                    "Login Failed",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Login error:\n" + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void showPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = showPwd.Checked ? '\0' : '*';
         }
     }
 }
