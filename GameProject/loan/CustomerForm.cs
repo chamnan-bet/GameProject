@@ -59,19 +59,25 @@ namespace GameProject.loan
                 using (MySqlConnection conn = db.GetConnection())
                 {
                     conn.Open();
+                    string customerId = db.gernerateCustomerId(conn);
 
                     string sql = @"INSERT INTO Customer 
-                           (firstname, lastname, gender, currentAddress, status)
+                           (CID, firstname, lastname, gender, placeOfBirth, dateOfBirth, currentAddress, status)
                            VALUES 
-                           (@fname, @lname, @gender, @address, @status)";
+                           (@cid, @fname, @lname, @gender,
+                            @pob, @dob, @address, @status)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
+                        cmd.Parameters.AddWithValue("@cid", customerId);
                         cmd.Parameters.AddWithValue("@fname", txtFirstName.Text.Trim());
                         cmd.Parameters.AddWithValue("@lname", txtLastName.Text.Trim());
                         cmd.Parameters.AddWithValue("@gender", cmbGender.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@dob", dtpDOB.Value.Date);
+                        cmd.Parameters.AddWithValue("@pob", txtPlaceOfBirth.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
-                        cmd.Parameters.AddWithValue("@status", "Active");
+                        cmd.Parameters.AddWithValue("@status",
+                            chkActive.Checked ? "Active" : "Inactive");
 
                         cmd.ExecuteNonQuery();
                     }
@@ -97,8 +103,26 @@ namespace GameProject.loan
         {
             txtFirstName.Clear();
             txtLastName.Clear();
+            txtPlaceOfBirth.Clear();
             txtAddress.Clear();
             cmbGender.SelectedIndex = 0;
+            dtpDOB.Value = DateTime.Today;
+            chkActive.Checked = true;
+        }
+
+        private void dtpDOB_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

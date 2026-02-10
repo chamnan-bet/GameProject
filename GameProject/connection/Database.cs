@@ -19,6 +19,28 @@ namespace GameProject.loan.connection
             return new MySqlConnection(connectionString); 
         }
 
+        public string gernerateCustomerId(MySqlConnection connection)
+        {
+            string sql = "SELECT CID FROM Customer ORDER BY CID DESC LIMIT 1";
+
+
+            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            {
+                object result = cmd.ExecuteScalar();
+
+                if (result == null || result == DBNull.Value)
+                {
+                    return "C00001";
+                }
+
+                string lastCId = result.ToString();
+                int number = int.Parse(lastCId.Substring(1));
+                number++;
+
+                return "C" + number.ToString("D5");
+            }
+        }
+
         public void testConnection()
         {
 
