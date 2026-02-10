@@ -73,6 +73,7 @@
     <Compile Include="chart\ChartControl.Designer.cs">
       <DependentUpon>ChartControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="connection\IDatabaseService.cs" />
     <Compile Include="loan\Calculator.cs" />
     <Compile Include="connection\Database.cs" />
     <Compile Include="loan\CustomerForm.cs">
@@ -81,6 +82,7 @@
     <Compile Include="loan\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="loan\LoanCalculationBase.cs" />
     <Compile Include="loan\LoanCalculator.cs">
       <SubType>Form</SubType>
     </Compile>

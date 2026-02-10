@@ -75,7 +75,6 @@
             this.label1.Size = new System.Drawing.Size(455, 57);
             this.label1.TabIndex = 2;
             this.label1.Text = "Create New Customer";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmbGender
             // 
@@ -133,7 +132,6 @@
             this.label7.Size = new System.Drawing.Size(148, 31);
             this.label7.TabIndex = 19;
             this.label7.Text = "Place of Birth";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtPlaceOfBirth
             // 
@@ -153,7 +151,6 @@
             this.label6.Size = new System.Drawing.Size(142, 31);
             this.label6.TabIndex = 17;
             this.label6.Text = "Date of Birth";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // dtpDOB
             // 
@@ -165,13 +162,13 @@
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(198, 38);
             this.dtpDOB.TabIndex = 16;
-            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.Black;
             this.btnClear.Location = new System.Drawing.Point(244, 434);
             this.btnClear.Name = "btnClear";
@@ -186,6 +183,7 @@
             this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSave.FlatAppearance.BorderSize = 0;
             this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSave.ForeColor = System.Drawing.Color.White;
             this.btSave.Location = new System.Drawing.Point(21, 434);
             this.btSave.Name = "btSave";

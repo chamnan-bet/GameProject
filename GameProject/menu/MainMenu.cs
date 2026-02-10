@@ -47,23 +47,7 @@ namespace GameProject.manu
         private void btnTestDb_Click(object sender, EventArgs e)
         {
             Database db = new Database();
-
-            //if (db.testConnection(out string msg))
-            //{
-            //    MessageBox.Show(msg,
-            //            "Success",
-            //            MessageBoxButtons.OK,
-            //            MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show(msg,
-            //            "Database Error",
-            //            MessageBoxButtons.OK,
-            //            MessageBoxIcon.Error);
-            //}
-
-            db.testConnection(); 
+            db.TestConnection(); 
         }
 
         private void MainMenu_Load(object sender, EventArgs e)

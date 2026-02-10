@@ -1,30 +1,39 @@
-﻿using MySql.Data.MySqlClient;
+﻿using GameProject.connection;
 using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace GameProject.loan.connection
 {
-    public class Database
+    public class Database : IDatabaseService
     {
         private string connectionString;
 
         public Database()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["LoanDB"].ConnectionString;
+            connectionString = ConfigurationManager
+                .ConnectionStrings["LoanDB"]
+                .ConnectionString;
         }
 
-        public MySqlConnection GetConnection() 
-        { 
-            return new MySqlConnection(connectionString); 
-        }
-
-        public string gernerateCustomerId(MySqlConnection connection)
+        public SqlConnection GetConnection()
         {
-            string sql = "SELECT CID FROM Customer ORDER BY CID DESC LIMIT 1";
+            try
+            {
+                return new SqlConnection(connectionString);
+            }
+            catch (ConfigurationErrorsException)
+            {
+                throw new ApplicationException("Database configuration is invalid.");
+            }
+        }
 
+        public string GenerateCustomerId(SqlConnection connection)
+        {
+            string sql = "SELECT TOP 1 CID FROM Customer ORDER BY CID DESC";
 
-            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
             {
                 object result = cmd.ExecuteScalar();
 
@@ -41,12 +50,11 @@ namespace GameProject.loan.connection
             }
         }
 
-        public string gernerateLoanContractId(MySqlConnection connection)
+        public string GenerateLoanContractId(SqlConnection connection)
         {
-            string sql = "SELECT LC FROM LoanContract ORDER BY LC DESC LIMIT 1";
+            string sql = "SELECT TOP 1 LC FROM LoanContract ORDER BY LC DESC";
 
-
-            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
             {
                 object result = cmd.ExecuteScalar();
 
@@ -55,51 +63,47 @@ namespace GameProject.loan.connection
                     return "LC00001";
                 }
 
-                string lastCId = result.ToString();
-                int number = int.Parse(lastCId.Substring(2));
+                string lastLC = result.ToString();
+                int number = int.Parse(lastLC.Substring(2));
                 number++;
 
                 return "LC" + number.ToString("D3");
             }
         }
 
-        public void testConnection()
+        public bool ValidateLogin(string username, string password)
         {
+            string sql = @"SELECT COUNT(*) 
+                   FROM Users 
+                   WHERE Username = @username 
+                     AND PasswordHash = @password
+                     AND Status = 'Active'";
 
-            //try
-            //{
-            //    using (MySqlConnection conn = getConnection())
-            //    {
-            //        conn.Open();
+            using (SqlConnection conn = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
 
-            //        // Real test — MySQL responds
-            //        using (MySqlCommand cmd = new MySqlCommand("SELECT 1", conn))
-            //        {
-            //            cmd.ExecuteScalar();
-            //        }
-
-            //        message = "Database connection successful!";
-            //        return true;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    message = ex.Message;
-            //    return false;
-            //}
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
 
 
-            using (MySqlConnection conn = GetConnection())
+        public void TestConnection()
+        {
+            using (SqlConnection conn = GetConnection())
             {
                 try
                 {
                     conn.Open();
-                    MessageBox.Show("Connection successfully!"); 
+                    MessageBox.Show("SQL Server connection successful!");
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Connection failed: " + e.Message);
-                    
+                    MessageBox.Show("Connection failed: " + ex.Message);
                 }
             }
         }
