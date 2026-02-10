@@ -50,6 +50,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCID = new System.Windows.Forms.Label();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
+            this.btnSaveLoan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -138,7 +140,7 @@
             this.calBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.calBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.calBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calBtn.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.calBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.calBtn.Location = new System.Drawing.Point(164, 293);
             this.calBtn.Name = "calBtn";
             this.calBtn.Size = new System.Drawing.Size(264, 62);
@@ -183,14 +185,17 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(46, 519);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1278, 280);
             this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label7
             // 
@@ -286,12 +291,42 @@
             this.txtCID.Text = "CID";
             this.txtCID.Click += new System.EventHandler(this.label12_Click);
             // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnAddCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCustomer.Location = new System.Drawing.Point(1084, 450);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(240, 56);
+            this.btnAddCustomer.TabIndex = 22;
+            this.btnAddCustomer.Text = "Add New Customer";
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // btnSaveLoan
+            // 
+            this.btnSaveLoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnSaveLoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSaveLoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveLoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveLoan.Location = new System.Drawing.Point(619, 370);
+            this.btnSaveLoan.Name = "btnSaveLoan";
+            this.btnSaveLoan.Size = new System.Drawing.Size(189, 56);
+            this.btnSaveLoan.TabIndex = 23;
+            this.btnSaveLoan.Text = "Save Loan";
+            this.btnSaveLoan.UseVisualStyleBackColor = false;
+            this.btnSaveLoan.Click += new System.EventHandler(this.btnSaveLoan_Click);
+            // 
             // LoanCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1371, 843);
+            this.Controls.Add(this.btnSaveLoan);
+            this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.txtCID);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -347,5 +382,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label txtCID;
+        private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnSaveLoan;
     }
 }
