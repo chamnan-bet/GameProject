@@ -185,6 +185,12 @@ namespace GameProject.loan
                 updateCmd.Parameters.AddWithValue("@LC", lc);
                 updateCmd.ExecuteNonQuery();
             }
-        } 
+        }
+
+        private void paymentSchedule_Click(object sender, EventArgs e)
+        {
+            new PaymentScheduleForm().ShowDialog();
+            LoadCustomers(); // refresh
+        }
     }
 }

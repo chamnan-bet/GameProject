@@ -89,6 +89,17 @@
     <Compile Include="loan\LoanCalculator.Designer.cs">
       <DependentUpon>LoanCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="loan\models\PaymentScheduleDto.cs" />
+    <Compile Include="loan\models\PaymentScheduleFilter.cs" />
+    <Compile Include="loan\PaymentScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loan\PaymentScheduleForm.Designer.cs">
+      <DependentUpon>PaymentScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loan\repositories\IPaymentScheduleRepository.cs" />
+    <Compile Include="loan\repositories\PaymentScheduleRepository.cs" />
+    <Compile Include="loan\services\PaymentScheduleService.cs" />
     <Compile Include="login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="loan\LoanCalculator.resx">
       <DependentUpon>LoanCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loan\PaymentScheduleForm.resx">
+      <DependentUpon>PaymentScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
