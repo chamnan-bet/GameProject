@@ -66,7 +66,7 @@ namespace Tic_Tac_Toe
             if (!string.IsNullOrEmpty(btn.Text)) return; // Already clicked
 
             btn.Text = isXTurn ? "X" : "O";
-            btn.BackColor = isXTurn ? Color.LightBlue : Color.MediumPurple;
+            btn.BackColor = isXTurn ? Color.LightBlue : Color.IndianRed;
 
             isXTurn = !isXTurn;
             lblStatus.Text = "Turn: " + (isXTurn ? "X" : "O");

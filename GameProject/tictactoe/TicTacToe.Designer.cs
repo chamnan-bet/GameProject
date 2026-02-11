@@ -68,7 +68,6 @@ namespace Tic_Tac_Toe
             // 
             this.startGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
             this.startGame.FlatAppearance.BorderSize = 0;
-            this.startGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startGame.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.startGame.ForeColor = System.Drawing.Color.White;
             this.startGame.Location = new System.Drawing.Point(459, 24);
@@ -91,9 +90,8 @@ namespace Tic_Tac_Toe
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(20)))), ((int)(((byte)(60)))));
+            this.btnReset.BackColor = System.Drawing.Color.MediumPurple;
             this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Location = new System.Drawing.Point(730, 24);
@@ -108,14 +106,14 @@ namespace Tic_Tac_Toe
             // 
             this.lblStatus.Font = new System.Drawing.Font("Leelawadee UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblStatus.Location = new System.Drawing.Point(41, 80);
+            this.lblStatus.Location = new System.Drawing.Point(41, 81);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(69, 24);
+            this.lblStatus.Size = new System.Drawing.Size(100, 23);
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Turn: X";
             this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
-            // Form1
+            // TicTacToe
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(900, 820);
@@ -127,7 +125,7 @@ namespace Tic_Tac_Toe
             this.Controls.Add(this.panelGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "TicTacToe";
             this.Text = "Tic Tac Toe";
             this.ResumeLayout(false);
             this.PerformLayout();
