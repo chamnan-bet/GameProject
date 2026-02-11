@@ -52,6 +52,7 @@
             this.txtCID = new System.Windows.Forms.Label();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.btnSaveLoan = new System.Windows.Forms.Button();
+            this.paymentSchedule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -286,7 +287,7 @@
             this.btnAddCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(1084, 450);
+            this.btnAddCustomer.Location = new System.Drawing.Point(838, 450);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(240, 56);
             this.btnAddCustomer.TabIndex = 22;
@@ -309,12 +310,27 @@
             this.btnSaveLoan.UseVisualStyleBackColor = false;
             this.btnSaveLoan.Click += new System.EventHandler(this.btnSaveLoan_Click);
             // 
+            // paymentSchedule
+            // 
+            this.paymentSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.paymentSchedule.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.paymentSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paymentSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentSchedule.Location = new System.Drawing.Point(1084, 450);
+            this.paymentSchedule.Name = "paymentSchedule";
+            this.paymentSchedule.Size = new System.Drawing.Size(240, 56);
+            this.paymentSchedule.TabIndex = 24;
+            this.paymentSchedule.Text = "Payment Schedule";
+            this.paymentSchedule.UseVisualStyleBackColor = false;
+            this.paymentSchedule.Click += new System.EventHandler(this.paymentSchedule_Click);
+            // 
             // LoanCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1371, 843);
+            this.Controls.Add(this.paymentSchedule);
             this.Controls.Add(this.btnSaveLoan);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.txtCID);
@@ -374,5 +390,6 @@
         private System.Windows.Forms.Label txtCID;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Button btnSaveLoan;
+        private System.Windows.Forms.Button paymentSchedule;
     }
 }
